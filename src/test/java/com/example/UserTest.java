@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.*;
@@ -117,29 +118,5 @@ public class UserTest {
         int actual = 41;
 
         assertEquals(expected, actual);
-    }
-
-    @Test
-    public void getAverageAgeOfAllUsers() {
-    }
-
-    @Test
-    public void testGetAverageAgeOfAllUsers() {
-    }
-
-    @Test
-    public void getId() {
-    }
-
-    @Test
-    public void getName() {
-    }
-
-    @Test
-    public void getAge() {
-    }
-
-    @Test
-    public void getSex() {
     }
 }
