@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
@@ -8,12 +9,19 @@ import static org.junit.Assert.*;
 
 public class UserTest {
 
+    private User user;
+    private User user1;
+    private User user2;
+
+    @Before
+    public void setup() {
+        user = new User("Евгений", 35, Sex.MALE);
+        user1 = new User("Марина", 34, Sex.FEMALE);
+        user2 = new User("Алина", 7, Sex.FEMALE);
+    }
+
     @Test
     public void getAllUsers() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         List<User> expected = User.getAllUsers();
 
         List<User> actual = new ArrayList<>();
@@ -32,10 +40,6 @@ public class UserTest {
 
     @Test
     public void GetAllUsers_MALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         List<User> expected = User.getAllUsers(Sex.MALE);
 
         List<User> actual = new ArrayList<>();
@@ -53,10 +57,6 @@ public class UserTest {
 
     @Test
     public void GetAllUsers_FEMALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         List<User> expected = User.getAllUsers(Sex.FEMALE);
         List<User> actual = new ArrayList<>();
         actual.add(user1);
@@ -73,10 +73,6 @@ public class UserTest {
 
     @Test
     public void getHowManyUsers() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getHowManyUsers();
         int actual = 3;
 
@@ -85,10 +81,6 @@ public class UserTest {
 
     @Test
     public void GetHowManyUsers_MALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getHowManyUsers(Sex.MALE);
         int actual = 1;
 
@@ -97,10 +89,6 @@ public class UserTest {
 
     @Test
     public void GetHowManyUsers_FEMALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getHowManyUsers(Sex.FEMALE);
         int actual = 2;
 
@@ -109,10 +97,6 @@ public class UserTest {
 
     @Test
     public void getAllAgeUsers() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getAllAgeUsers();
         int actual = 76;
 
@@ -121,10 +105,6 @@ public class UserTest {
 
     @Test
     public void getAllAgeUsers_MALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getAllAgeUsers(Sex.MALE);
         int actual = 35;
 
@@ -133,10 +113,6 @@ public class UserTest {
 
     @Test
     public void getAllAgeUsers_FEMALE() {
-        User user = new User("Евгений", 35, Sex.MALE);
-        User user1 = new User("Марина", 34, Sex.FEMALE);
-        User user2 = new User("Алина", 7, Sex.FEMALE);
-
         int expected = User.getAllAgeUsers(Sex.FEMALE);
         int actual = 41;
 
