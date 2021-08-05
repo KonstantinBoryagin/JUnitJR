@@ -1,7 +1,7 @@
 package com.example;
 
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.*;
@@ -14,11 +14,44 @@ public class UserTest {
     private User user1;
     private User user2;
 
+    private User userNotAdd;
+    private User userNotAdd1;
+
     @Before
     public void setup() {
         user = new User("Евгений", 35, Sex.MALE);
         user1 = new User("Марина", 34, Sex.FEMALE);
         user2 = new User("Алина", 7, Sex.FEMALE);
+
+        userNotAdd = new User("", 0, null);
+        userNotAdd1 = new User(null, 0, null);
+    }
+
+    @Test
+    public void newUser_EMPTY_NAME() {
+        for (User user : User.getAllUsers()) {
+            if (user.getName() != null && user.getName().isEmpty()) {
+                fail("Попытка создания пользователя с пустым именем");
+            }
+        }
+    }
+
+    @Test
+    public void newUser_AGE_ZERO() {
+        for (User user : User.getAllUsers()) {
+            if (user.getAge() <= 0) {
+                Assert.fail("Попытка создания пользователя c не допустимым возрастом");
+            }
+        }
+    }
+
+    @Test
+    public void newUser_SEX_NO_NULL() {
+        for (User user : User.getAllUsers()) {
+            if (user.getSex() == null) {
+                fail("Попытка создания пользователя с указанием пола = null");
+            }
+        }
     }
 
     @Test
