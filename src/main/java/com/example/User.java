@@ -12,16 +12,16 @@ public class User {
     private static int countId = 0;
 
     public User(String name, int age, Sex sex) {
-        if (name != null && !name.isEmpty() && age > 0 && sex != null) {
+        if (name != null && !name.isEmpty() && age > 0 && sex != null){
             this.name = name;
             this.age = age;
             this.sex = sex;
-        }
 
-        if (!hasUser()) {
-            countId++;
-            this.id = countId;
-            allUsers.put(id, this);
+            if (!hasUser()) {
+                countId++;
+                this.id = countId;
+                allUsers.put(id, this);
+            }
         }
     }
 
